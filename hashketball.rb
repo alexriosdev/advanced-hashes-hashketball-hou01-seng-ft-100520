@@ -188,8 +188,18 @@ end
 
 def player_stats(player_name)
   game_hash.each do |location, team_data|
-    if team_data[:players] == player_name
-      return team_data[:players].map { |player| player.keys }
+    team_data[:players].each do |player|
+      if player[:player_name] == player_name
+        return player.keys
+      end
     end
   end
 end
+
+# def player_stats(player_name)
+#   game_hash.each do |location, team_data|
+#     if team_data[:players] == player_name
+#       return team_data[:players].map { |player| player.keys }
+#     end
+#   end
+# end
